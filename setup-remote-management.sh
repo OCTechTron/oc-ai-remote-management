@@ -22,16 +22,19 @@ GITHUB_REPO="https://raw.githubusercontent.com/OCTechTron/oc-ai-remote-managemen
 # Logging function
 log() {
     echo -e "${GREEN}[$(date '+%Y-%m-%d %H:%M:%S')] $1${NC}"
+    mkdir -p "$LOG_DIR" 2>/dev/null
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_DIR/setup.log"
 }
 
 error() {
     echo -e "${RED}[ERROR] $1${NC}"
+    mkdir -p "$LOG_DIR" 2>/dev/null
     echo "[ERROR $(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_DIR/setup.log"
 }
 
 warning() {
     echo -e "${YELLOW}[WARNING] $1${NC}"
+    mkdir -p "$LOG_DIR" 2>/dev/null
     echo "[WARNING $(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_DIR/setup.log"
 }
 
